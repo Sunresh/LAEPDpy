@@ -10,7 +10,7 @@ import os
 from PIL import ImageTk, Image
 from ioioo import TkinterFactory
 from deposition import gradually_increase_v, analogout, digitalout
-
+from logview import debug, info, warning, error
 
 class Application:
 
@@ -19,9 +19,9 @@ class Application:
         self.elements = []
         self.pref = None
         self.file_path = 'selected_values.json'
-        self.d = "Dev2" ##"SimDev1" #"Dev3" #self.daqdev()
-        self.a0dev = "Dev2/ao0" ##"SimDev1/ao0" #"Dev3/ao0" #"Dev"+str(self.d)+"/ao0"
-        self.a1dev = "Dev2/ao1" ##"SimDev1/ao1" #"Dev3/ao1" #"Dev"+str(self.d)+"/ao1"
+        self.d = "Dsim" ##"SimDev1" #"Dev3" #self.daqdev()
+        self.a0dev = "Dsim/ao0" ##"SimDev1/ao0" #"Dev3/ao0" #"Dev"+str(self.d)+"/ao0"
+        self.a1dev = "Dsim/ao1" ##"SimDev1/ao1" #"Dev3/ao1" #"Dev"+str(self.d)+"/ao1"
         self.pzt = 3
         self.electrophoresis = 2
         self.deptime = 20
@@ -44,7 +44,8 @@ class Application:
         self.root.geometry(f"{w}x{h}+0+0")
         self.root.configure(bg="white")
         self.root.resizable(False, False)
-        self.logo = PhotoImage(file=r"C:/Users/nares/Desktop/1web/screenshot.png", height=round(self.mgh(0.4)*0.5), width=round(self.mgw(0.4)*0.5))
+        self.img_pathy = r"C:/Users/kouki-15/Pictures/Screenshots/Screenshot 2024-10-07 161949.png"
+        self.logo = PhotoImage(file=r"C:/Users/kouki-15/Pictures/Screenshots/Screenshot 2024-10-07 161949.png", height=round(self.mgh(0.4)*0.5), width=round(self.mgw(0.4)*0.5))
         self.root.iconphoto(False, self.logo)
         self.fa = TkinterFactory(self.root)
         self.create_elements()
@@ -151,9 +152,9 @@ class Application:
     @ehandl
     def create_elements(self):
         self.menu()
-        self.CCD_l = self.fa.clbl(self.root, text="CCD Camera", row=0, column=0, img=r"C:/Users/nares/Desktop/1web/screenshot.png", width=self.mgw(0.4), height=self.mgh(0.4))
+        self.CCD_l = self.fa.clbl(self.root, text="CCD Camera", row=0, column=0, img=self.img_pathy, width=self.mgw(0.4), height=self.mgh(0.4))
         self.CCD_label = self.fa.clbl(self.CCD_l, text="CCD Camera", anchor="center", row=0, column=0)
-        self.dgraph = self.fa.clbl(self.root, text="Graph", row=0, column=self.mgw(0.4) + 1, img=r"C:/Users/nares/Desktop/1web/screenshot.png", width=self.mgw(0.4), height=self.mgw(0.4))
+        self.dgraph = self.fa.clbl(self.root, text="Graph", row=0, column=self.mgw(0.4) + 1, img=self.img_pathy, width=self.mgw(0.4), height=self.mgw(0.4))
         self.opf= self.fa.cfrm(self.root, row=0, column=self.mgw(0.8)+3, height=self.mgh(1), width=self.mgw(0.1))
         Lb1 = self.fa.clbl(self.opf, text="Choose Camera", row=0, column=0)
         self.opt = self.fa.cbbox(self.opf, values=("CCD Camera", "Laptop Webcam"), row=40, column=0, lofa=self.pref['Camera'])
@@ -244,7 +245,7 @@ class Application:
             if self.cap:
                 self.cap.release()
                 self.cap = None
-            original_image = Image.open(r"C:/Users/nares/Desktop/1web/screenshot.png")
+            original_image = Image.open(self.img_pathy)
             w,h= self.CCD_label.winfo_height(),self.CCD_label.winfo_width()
             resized_image = original_image.resize((w, h))
             photo_image = ImageTk.PhotoImage(resized_image)
