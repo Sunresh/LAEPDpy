@@ -1,0 +1,15 @@
+app.py:44 - 2024-10-11 14:32:37,927 - DEBUG - Window size: 1632x918
+app.py:44 - 2024-10-11 14:34:12,265 - DEBUG - Window size: 1632x918
+app.py:44 - 2024-10-11 14:34:35,502 - DEBUG - Window size: 1632x918
+app.py:44 - 2024-10-11 14:34:48,852 - DEBUG - Window size: 1632x918
+app.py:47 - 2024-10-11 14:34:48,870 - INFO - img_pathy: C:/Users/kouki-15/Pictures/Screenshots/ogusu.png
+app.py:39 - 2024-10-11 14:35:39,160 - INFO - img_pathy: C:/Users/kouki-15/Pictures/Screenshots/ogusu.png
+app.py:39 - 2024-10-11 14:36:01,968 - INFO - img_pathy: C:/Users/kouki-15/Pictures/Screenshots/ogusu.png
+app.py:59 - 2024-10-11 14:36:02,267 - ERROR - Error Message
+app.py:59 - 2024-10-11 14:36:02,289 - ERROR - Error Message
+app.py:59 - 2024-10-11 14:36:02,302 - ERROR - Error Message
+app.py:52 - 2024-10-11 14:37:17,477 - ERROR - name 'os' is not defined
+app.py:52 - 2024-10-11 14:37:17,497 - ERROR - module 'customtkinter' has no attribute 'CTkMenu'
+app.py:52 - 2024-10-11 14:37:17,508 - ERROR - '_tkinter.tkapp' object has no attribute 'fa'
+app.py:58 - 2024-10-11 14:41:48,486 - ERROR - module 'customtkinter' has no attribute 'Menu'
+app.py:58 - 2024-10-11 14:42:28,260 - ERROR - module 'customtkinter' has no attribute 'Menu'
